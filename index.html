@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stock Search Application</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Stock Search</h1>
+ 
+
+    <!-- Dynamically Created Buttons  -->
+    <div id="buttons-view"></div>
+
+    <form id="stock-form">
+      <label for="stock-input">Add a Stock Symbol</label>
+      <input type="text" id="stock-input">
+      <span id="errMsg"></span>
+      <br>
+
+      <!-- Button triggers new stock to be added -->
+      <input id="add-stock" type="submit" value="Add a Stock Symbol">
+    </form>
+
+    <!-- Stock Info Display -->
+    <div id="stocks-view"></div>
+    
+  </div>
+
+    <footer>
+    “Data provided for free by IEX.”
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

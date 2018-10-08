@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+
+    /* Temporary:  For UI tweaking. */
+    /* border-style: solid;
+    /* border-width: 1px; */
+}
+
+For text floating around an image
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+body {
+
+}
+
+button,
+    div,
+    form,
+    input {
+      margin: 10px;
+    } */
+
+#errMsg {
+    color: red;
+}    
+
+/* footer{
+    position: fixed;
+    margin-bottom: 0px;
+
+} */

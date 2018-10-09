@@ -18,6 +18,16 @@
     <!-- Dynamically Created Buttons  -->
     <div id="buttons-view"></div>
 
+    <!--Select more information to display-->
+    <form id=optContent action="">
+      <input id=hi type="checkbox" value="hi"> 52 week High
+      <input id=lo type="checkbox" value="lo"> 52 week Low
+      <input id=desc type="checkbox" value="desc"> Description
+      <input id=web type="checkbox" value="web"> Website
+      <input id=ceo type="checkbox" value="ceo"> CEO
+      <input id=nyt type="checkbox" value="nyt"> NyTimes Articles
+    </form>
+
     <form id="stock-form">
       <label for="stock-input">Add a Stock Symbol</label>
       <input type="text" id="stock-input">
@@ -30,6 +40,11 @@
 
     <!-- Stock Info Display -->
     <div id="stocks-view"></div>
+
+    <div id=nytResults>
+      <br>
+      <div id=results></div>
+    </div>
     
   </div>
 

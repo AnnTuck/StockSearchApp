@@ -14,10 +14,7 @@ const displayStockInfo = function () {
   // Grab the stock symbol from the button clicked and add it to the queryURL
    const stock = $(this).attr('data-name');
 
-   $('#stocks-view').empty();
-   $('#results').empty();
-
-  const queryURL = `https://api.iextrading.com/1.0/stock/${stock}/batch?types=quote,logo,company,peers,news&range=1m&last=10`;
+  const queryURL = `https://api.iextrading.com/1.0/stock/${stock}/batch?types=quote,logo,news&range=1m&last=10`;
   
   // Creating an AJAX call for the specific stock button being clicked
   $.ajax({
@@ -71,80 +68,6 @@ const displayStockInfo = function () {
     stockDiv.append(priceHolder);
 
 
-    //***New code for displaying optional content */
-    // Optional content checkbox selectors
-    var clickHi = document.getElementById("hi");
-    var clicklo = document.getElementById("lo");
-    var clickDesc = document.getElementById("desc");
-    var clickWeb = document.getElementById("web");
-    var clickCeo = document.getElementById("ceo");
-    var clickNyTimes = document.getElementById("nyt");
-
-
-    console.log("clickHi", clickHi);
-    console.log("clickHi.checked", clickHi.checked)
-
-  
-
-    if (clickHi.checked == true){
-        // Storing the 52 week High
-        const yearHi = response.quote.week52High;
-
-        // Creating an element to display the 52 week High
-        const yearHiHolder = $('<p>').text(`52 Week High: ${yearHi}`);
-
-        // Appending the 52 week High to our stockDiv
-        stockDiv.append(yearHiHolder);
-    } 
-    if (clicklo.checked == true){
-      // Storing the 52 week low
-      const yearLo = response.quote.week52Low;
-
-      // Creating an element to display the 52 week Low
-      const yearLoHolder = $('<p>').text(`52 Week Low: ${yearLo}`);
-
-      // Appending the 52 week Low to our stockDiv
-      stockDiv.append(yearLoHolder);
-    } 
-    if (clickDesc.checked == true){
-      // Storing the description
-      const description = response.company.description;
-
-      // Creating an element to display the description
-      const descriptionHolder = $('<p>').text(`Description: ${description}`);
-
-      // Appending the description to our stockDiv
-      stockDiv.append(descriptionHolder);
-    } 
-    if (clickWeb.checked == true){
-      // Storing the Website
-      const website = response.company.website;
-
-      // Creating an element to display the website
-      const websiteHolder = $('<p>').text(`Website: ${website}`);
-
-      // Appending the website to our stockDiv
-      stockDiv.append(websiteHolder);
-    } 
-    if (clickCeo.checked == true){
-      // Storing the CEO name
-      const ceo = response.company.CEO;
-
-      // Creating an element to display the CEO
-      const ceoHolder = $('<p>').text(`CEO: ${ceo}`);
-
-      // Appending the CEO to our stockDiv
-      stockDiv.append(ceoHolder);
-    } 
-    if (clickNyTimes.checked == true){
-        dispNytResults(companyName, 3, 01/01/2000, 01/01/2018);
-    } 
-
-
-
-
-
-
     //***New Code for displaying up to 10 news stories */
     for (let i=0; i<response.news.length; i++) {
 
@@ -154,7 +77,7 @@ const displayStockInfo = function () {
       // const companyNews = response.news[2].summary;
 
     // Creating an element to display the news summary
-    const summaryHolder = $('<p>').text(`IEX Headline: ${companyNews}`);
+    const summaryHolder = $('<p>').text(`News Headline: ${companyNews}`);
 
     // Appending the summary to our stockDiv
     stockDiv.append(summaryHolder);
@@ -164,49 +87,9 @@ const displayStockInfo = function () {
     // Finally adding the stockDiv to the DOM
     // Until this point nothing is actually displayed on our page
     $('#stocks-view').prepend(stockDiv);
-
-
-    
   });
 
 }
-//***New Code */
-//Function for getting optional NYTimes content
-
-
-const dispNytResults = function(keywordInput, numRecordInput, startYearInput, endYearInput) {
-  console.log ("displayResults keywordInput", keywordInput);
-
-  const queryURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=bccea3c2aaa1417790728926205111bc&q=${keywordInput}&beg_date${startYearInput}&end_date${endYearInput}`;
- 
-  $.ajax({
-  url: queryURL,
-  method: 'GET'
-
-}).then(function(response) {
-  console.log(response);
-
-  for (let i=0; i<numRecordInput; i++) {
-  const article = response.response.docs[i].headline.main;
-  const articleUrl = response.response.docs[i].web_url;
-
-  console.log("article", article);
-
-  // console.log(jason.stringify(response));
-
-  const artElement = $('<p>').text(`NYTimes Headline: ${article}`);
-  const artUrlElement = $('<p>').text(`${articleUrl}`);
-
-
-  $('#results').prepend(artUrlElement);
-  $('#results').prepend(artElement);
-  $('#results').prepend(`<hr>`);
- 
-  }
-});
-
-}
-
 
 // Function for displaying stock data
 const render = function () {
@@ -278,7 +161,7 @@ const addButton = function(event) {
                     
         }
     }
-    //***New Code for pushing new stock symbol to the array if it is valid or giving an error message if symbol is not found */
+    //***New Code for pushing new stock symbol to the array if it is valid and giving an error message if symbol is not found */
     if (stockIndex) {
     // If stock symbol is valid:  
     // The stock from the textbox is then added to our array
@@ -299,8 +182,6 @@ const addButton = function(event) {
 
 
 
-
-
 //****MAIN BODY**************************************************************/
 //Declare variables
   var validationList = 0;
@@ -309,7 +190,6 @@ const addButton = function(event) {
 //-----and let's hide the input box until symbols are loaded
 document.getElementById("stock-form").style.display = "none";
 getSymbols();
-
 
 
 // Even listener for #add-stock button

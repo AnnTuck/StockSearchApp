@@ -26,4 +26,18 @@ Improvements Pending:
     Article Images:
         Add images to the articles.
 
+    Weblinks:
+        Make website links active.
+    
+    Responsive:
+        Make the page fully responsive.
+    
+    Favorites w/cookies:
+        Allow users to save favorite stocks with cookies.
+
+    Optional content:
+        Instead of clunky check boxes, allow users to select available fields from JSON using an object to display selections and an object to dynamically select content.
+
+    Ugly UI:
+        Spiff things up!
 

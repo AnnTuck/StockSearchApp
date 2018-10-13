@@ -6,53 +6,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Stock Search Application</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
+
 <body>
+<div class="container">
+  
 
-  <div class="container">
-    <h1>Stock Search</h1>
- 
-
-    <!-- Dynamically Created Buttons  -->
-    <div id="buttons-view"></div>
-
-    <!--Select more information to display-->
-    <form id=optContent action="">
-      <input id=hi type="checkbox" value="hi"> 52 week High
-      <input id=lo type="checkbox" value="lo"> 52 week Low
-      <input id=desc type="checkbox" value="desc"> Description
-      <input id=web type="checkbox" value="web"> Website
-      <input id=ceo type="checkbox" value="ceo"> CEO
-      <input id=nyt type="checkbox" value="nyt"> NyTimes Articles
-    </form>
-
-    <form id="stock-form">
-      <label for="stock-input">Add a Stock Symbol</label>
-      <input type="text" id="stock-input">
-      <span id="errMsg"></span>
-      <br>
-
-      <!-- Button triggers new stock to be added -->
-      <input id="add-stock" type="submit" value="Add a Stock Symbol">
-    </form>
-
-    <!-- Stock Info Display -->
-    <div id="stocks-view"></div>
-
-    <div id=nytResults>
-      <br>
-      <div id=results></div>
+    <div class="row header">
+      <div class="col-xs-12">
+        <h1>Stock Search </h1>
+      </div>
     </div>
-    
-  </div>
+  
+    <div class="row controls">
+        <div class="col-xs-12">
+          <!-- Dynamically Created Buttons  -->
+          <div id="buttons-view"></div>
+        
+          <!--Select more information to display-->
+          <form id=optContent action="">
+            <input id=hi type="checkbox" value="hi"> 52 week High
+            <input id=lo type="checkbox" value="lo"> 52 week Low
+            <input id=desc type="checkbox" value="desc"> Description
+            <input id=web type="checkbox" value="web"> Website
+            <input id=ceo type="checkbox" value="ceo"> CEO
+            <input id=nyt type="checkbox" value="nyt"> NyTimes Articles
+          </form>
+     
+          <!--Add Stock Symbol Buttons-->
+          <form id="stock-form">
+            <label for="stock-input">Add a Stock Symbol</label>
+            <input type="text" id="stock-input">
+            <input id="add-stock" type="submit" value="Add">
+            <!-- <input id="rem-stock" type="submit" value="Del"> -->
+            <span id="errMsg"></span>
+          </form>
 
-    <footer>
-    “Data provided for free by IEX.”
-    </footer>
+        </div>
+    </div>
+
+      <div class="row">
+      <div class="col-sm-3 first-column">
+        <!--Stock Info Display -->
+        <div id="stocks-view"></div>
+      </div>
+
+      <div class="col-sm-9 second-column">
+          <div id="nytResults">
+              <br>
+            <div id="results"></div>
+          </div>   
+      </div> 
+      </div> 
+  
+
+    
+   
+</div>
+      
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="app.js"></script>
+
 </body>
 
 </html>

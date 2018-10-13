@@ -12,25 +12,20 @@ Maintained by Ann Tuck  GitHub user AnnTuck
 Leave comments on GitHub regarding this app.
 
 Stock data provided by IEXTrading.com
-Code for the basic structure for this app obtained from Georgia Tech Coding Bootcamp.
+Code for the basic structure for this app obtained from Georgia Tech Coding Bootcamp.  Find new code under the ***New Code comments.
 
 
-Improvements Pending:
+Things that I'd like to improve:
 
     Verify Stock Symbols:
-        Use a faster way to verify stock symbols
+        Use a faster way to verify stock symbols than loop.
             - Use of array find() method not yet implemented.
-    Footer:
-        Make it stick to the bottom of the page.
-    
+        
     Article Images:
         Add images to the articles.
 
     Weblinks:
         Make website links active.
-    
-    Responsive:
-        Make the page fully responsive.
     
     Favorites w/cookies:
         Allow users to save favorite stocks with cookies.
@@ -38,6 +33,4 @@ Improvements Pending:
     Optional content:
         Instead of clunky check boxes, allow users to select available fields from JSON using an object to display selections and an object to dynamically select content.
 
-    Ugly UI:
-        Spiff things up!
-
+    

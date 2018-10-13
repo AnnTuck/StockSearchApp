@@ -5,22 +5,6 @@
 const stocksList = ['CAT', 'DOG', 'HOG', 'FLY'];
 
 
-//Un-used Save for Later
-// console.log("localStorage.favStocks", localStorage.favStocks);
-// window.localStorage;
-// if (localStorage.favStocks = undefined) {
-//   localStorage.setItem("favStocks",stocksList);
-// }
-
-// // localStorage.setItem("favStocks",stocksList);
-
-// console.log("localStorage.length", localStorage.length);
-// console.log("localStorage.favStocks", localStorage.favStocks);
-// console.log("localStorage.favStocks[4]", localStorage.favStocks[4]);
-
-
-
-
 //**************FUNCTIONS***************** */
 
 
@@ -41,10 +25,8 @@ const displayStockInfo = function () {
     method: 'GET'
   }).then(function(response) {
 
-    // Creating a div to hold the stock and articles
+    // Creating a div to hold the stock
     const stockDiv = $('<div>').addClass('stock');
-    const artDiv = $('<div>').addClass('articles');
-    console.log("artDiv", artDiv);
 
 
 
@@ -52,7 +34,7 @@ const displayStockInfo = function () {
     const companyName = response.quote.companyName;
 
     // Creating an element to display the company name
-    const nameHolder = $('<h6>').text(`${companyName}`);
+    const nameHolder = $('<p>').text(`${companyName}`);
 
     // Appending the name to our stockDiv
     stockDiv.append(nameHolder);
@@ -158,8 +140,6 @@ const displayStockInfo = function () {
         dispNytResults(companyName, 3, 01/01/2000, 01/01/2018);
     } 
 
-    $('#stocks-view').prepend(stockDiv);
-
 
 
 
@@ -171,24 +151,19 @@ const displayStockInfo = function () {
     // Storing the first news summary
     
     const companyNews = response.news[i].summary;
-    // console.log(companyNews);
     
 
     // Creating an element to display the news summary
     const summaryHolder = $('<p>').text(`IEX Headline: ${companyNews}`);
-      console.log("summaryHolder", summaryHolder);
-    // Appending the summary to our stockArt
-    artDiv.append(summaryHolder);
+
+    // Appending the summary to our stockDiv
+    stockDiv.append(summaryHolder);
 
     };
 
     // Finally adding the stockDiv to the DOM
     // Until this point nothing is actually displayed on our page
-    // $('#stocks-view').prepend(stockDiv);
-       $('#results').prepend(artDiv);
-
-
-    
+    $('#stocks-view').prepend(stockDiv);
    
 
 
@@ -309,14 +284,6 @@ const addButton = function(event) {
     // If stock symbol is valid:  
     // The stock from the textbox is then added to our array
       stocksList.push(stock);
-     
-//Un-used.  Save for later.      
-// localStorage.setItem("favStocks",stocksList);
-// console.log("2localStorage.length", localStorage.length);
-// console.log("2localStorage.favStocks", localStorage.favStocks);
-// console.log("2localStorage", localStorage);
-
-
       $('#errMsg').text('');
     } else {
       $('#errMsg').text('Symbol not found.  Try again.');

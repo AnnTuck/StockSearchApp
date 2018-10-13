@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Stock Search Application</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class= "row heading">
+
+      <div class= "row banner">
+        <h1>Stock Search</h1>
+        
+      </div>
+
+      <!-- <div class= "row buttons"> -->
+        <!-- Dynamically Created Buttons  -->
+        <div id="buttons-view"></div>
+      <!-- </div> -->
+
+      <!-- <div class= "row chex"> -->
+        <!--Select more information to display-->
+        <form id=optContent action="">
+          <input id=hi type="checkbox" value="hi"> 52 week High
+          <input id=lo type="checkbox" value="lo"> 52 week Low
+          <input id=desc type="checkbox" value="desc"> Description
+          <input id=web type="checkbox" value="web"> Website
+          <input id=ceo type="checkbox" value="ceo"> CEO
+          <input id=nyt type="checkbox" value="nyt"> NyTimes Articles
+        </form>
+      <!-- </div> -->
+
+      <!-- <div class= "row symbol"> -->
+        <form id="stock-form">
+          <label for="stock-input">Add a Stock Symbol</label>
+
+          <input type="text" id="stock-input">
+          <input id="add-stock" type="submit" value="Add">
+          <span id="errMsg"></span>
+        
+      
+          <!-- Button triggers new stock to be added -->
+          
+        </form>
+      <!-- </div> -->
+
+    </div>
+
+    <div class="row main">
+
+       <div class="col-md-3">
+        <!--Stock Info Display -->
+         <div id="stocks-view"></div>
+      </div>
+
+      <div class="col-md-8">
+        <div id="nytResults">
+          <br>
+          <div id="results"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row footer">
+      <p>“Data provided for free by IEX.”</p>
+    </div>
+
+  </div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
